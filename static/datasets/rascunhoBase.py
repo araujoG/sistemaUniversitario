@@ -1,5 +1,5 @@
 import csv
-with open('datasets/notas.csv', newline="") as entradaCsv:
+with open('static/datasets/notas.csv', newline="") as entradaCsv:
     leitorCsv = csv.DictReader(entradaCsv)
     dicionarioDeCr = {}
     for linha in leitorCsv:
