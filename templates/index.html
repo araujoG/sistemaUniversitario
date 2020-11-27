@@ -1,2 +1,18 @@
-<button onclick="location.href='{% url 'index2'%}'"
-							class="btn btn-outline-primary">POPULAR</button>
+{% extends 'base.html' %}
+{% load static %}
+{% block corpo %}
+<div class="container py-4 fillView d-flex">
+	<div class="align-content-center flex-column w-75 text-center mx-auto align-self-center ">
+		<h1 class="carterOne">Escolha o Feed de Dados inicial</h1>
+		<p class="lead text-muted">Carregue um novo arquivo CSV para gerar um novo BD ou então utilize o que foi
+			carregado na última seção.
+		</p>
+		<div class="carterOne justify-content-center">
+			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-secondary mr-3">Novo BD</button>
+			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-primary text-white">BD Atual</button>
+		</div>
+
+	</div>
+	
+</div>
+{% endblock %}

@@ -25,3 +25,5 @@ class FeedDeDados(models.Model):
                 disciplina.save()
                 disciplinaCursada.save()
                 break;
+    
+    

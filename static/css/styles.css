@@ -1,0 +1,25 @@
+@font-face{
+    font-family: CarterOne;
+    src: url(../webfonts/CarterOne-Regular.ttf);
+}
+
+@font-face{
+    font-family: Roboto;
+    src: url(../webfonts/Roboto-Regular.ttf);
+}
+
+.carterOne{
+    font-family: CarterOne;
+}
+
+.roboto{
+    font-family: Roboto;
+}
+
+.fillView{
+    min-height: calc(100vh - 92.8px - 56px);
+}
+
+.cardFonteDeDados{
+    max-width: 600px;
+}
