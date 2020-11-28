@@ -1,18 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block corpo %}
+
 <div class="container py-4 fillView d-flex">
 	<div class="align-content-center flex-column w-75 text-center mx-auto align-self-center ">
 		<h1 class="carterOne">Escolha o Feed de Dados inicial</h1>
-		<p class="lead text-muted">Carregue um novo arquivo CSV para gerar um novo BD ou então utilize o que foi
-			carregado na última seção.
-		</p>
-		<div class="carterOne justify-content-center">
+		{% if not tabelaAlunoVazia %}
+			<p class="lead text-muted">Carregue um arquivo CSV para gerar um novo BD ou então utilize o que foi
+				carregado na última seção.
+			</p>
+		{% else %}
+			<p class="lead text-muted">Nenhum dado foi encontrado no Banco de Dados, carregue um arquivo CSV para alimentar o BD.
+			</p>
+		{% endif %}
+		<div class="carterOne justify-content-center mb-3">
+			{% if not tabelaAlunoVazia %}
+				<button onclick="location.href='{% url 'index2'%}'" class="btn btn-primary text-white">BD Atual</button>
+			{% endif %}
 			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-secondary mr-3">Novo BD</button>
-			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-primary text-white">BD Atual</button>
 		</div>
 
+		
+		<div class="mx-auto col-xl-4 ">
+			<div class="card carterOne">
+				<h4 class="card-title my-1 mx-2">Banco de Dados Atual</h4>
+				<div class="card-body">
+					<p class="card-text">{{nAlunos}} alunos</p>
+				</div>
+			</div>
+		</div>
+		<div>
+			{{tabelaAlunoVazia}}
+		</div>
+		<div>
+			{{nAlunos}}
+		</div>
 	</div>
-	
+	{% if not tabelaAlunoVazia %}
+	<div class="toast fixed-top mr-3 ml-auto  carterOne" role="alert" aria-live="assertive" aria-atomic="true"
+		data-delay="4000" data-autohide="false">
+		<div class="toast-header py-2">
+			<h4 class="mr-auto my-auto text-warning">Banco de Dados Atual</h4>
+			<button type="button" class="ml-2 mb-1 close my-auto" data-dismiss="toast" aria-label="Close">
+				<i class="fas fa-times"></i>
+			</button>
+		</div>
+		<div class="toast-body d-flex justify-content-around">
+			<button onclick="" class="btn btn-outline-info">Categorias</button>
+			<button onclick="" class="btn btn-outline-info">Categorias</button>
+		</div>
+	</div>
+	{% endif %}
+
 </div>
 {% endblock %}

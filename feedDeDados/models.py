@@ -5,13 +5,14 @@ from disciplina.models import Disciplina
 
 class FeedDeDados(models.Model):
     nomeArquivo = models.CharField(max_length=100, db_index=True, unique=True)
-    dataCarregamento = models.DateField(auto_now=True)
+    dataCarregamento = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'feedDeDados'
+        get_latest_by = 'dataCarregamento'
 
     def __str__(self):
-        return self.codigo
+        return self.nomeArquivo
 
     def populaBd(self):
         with open('static/datasets/'+self.nomeArquivo, newline="") as entradaCsv:
@@ -25,5 +26,13 @@ class FeedDeDados(models.Model):
                 disciplina.save()
                 disciplinaCursada.save()
                 break;
+
+    def apagaBd(self):
+        DisciplinaCursada.objects.all().delete()
+        Disciplina.objects.all().delete()
+        Aluno.objects.all().delete()
     
+    def substituiBd(self):
+        self.apagaBd()
+        self.populaBd()
     

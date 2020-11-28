@@ -23,3 +23,7 @@
 .cardFonteDeDados{
     max-width: 600px;
 }
+
+.fixed-top{
+    top:70px
+}
