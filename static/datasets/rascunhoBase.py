@@ -17,6 +17,8 @@ feed = FeedDeDados.objects.get(nomeArquivo='notas.csv')
 feed.substituiBd()
 
 
+DisciplinaCursada.objects.select_related('aluno').annotate(curso=F('aluno__curso')) #query com os cursos de cada aluno
+
 alunos = DisciplinaCursada.objects.select_related('aluno','disciplina').values('aluno','aluno__curso').annotate(notaCarga=Sum(F('nota')*F('disciplina__cargaHoraria')), cargaHoraria= Sum(F('disciplina__cargaHoraria')))
 alunos = alunos.values('aluno','aluno__curso').annotate(cr=F('notaCarga') / F('cargaHoraria'))
 
