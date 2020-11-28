@@ -19,35 +19,9 @@
 <body> 
 	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
 		<div class="container carterOne">
-			<a class="navbar-brand mr-3 carterOne" href="/">Sistema Acadêmico</a>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita --->
+			<a class="navbar-brand mr-3 carterOne" href="/">Sistema Acadêmico</a>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita ---->
 			{% block navbarContent %}
-			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu"
-				aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 			
-			<div class="collapse navbar-collapse" id="menu">
-				<div class="navbar-nav my-sm-2 my-lg-auto">
-					<div class="dropdown">
-						<a class="nav-link text-light nav-item dropdown-toggle" data-toggle="dropdown" href="#">Categorias</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item border-top" href="">Todos os produtos</a>
-						</div>
-					</div>
-				</div>
-				<form method="get" action="" class="form-inline mb-sm-2 my-lg-auto mx-auto">
-					<div class="input-group">
-						<div class="input-group-append">
-							<button class="btn btn-warning fontWhite botaoPesquisa" type="submit"><i
-									class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</form>
-				<div class="navbar-nav">
-					<a class="nav-link text-light nav-item" href="">Meu Carrinho</a>
-					<a class="nav-link text-light nav-item" href=""><i class="fas fa-sign-in-alt"></i> Entrar</a>
-				</div>
-			</div>
 			{% endblock %}
 		</div>
 	</nav>
