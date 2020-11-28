@@ -5,52 +5,39 @@
 <div class="container py-4 fillView d-flex">
 	<div class="align-content-center flex-column w-75 text-center mx-auto align-self-center ">
 		<h1 class="carterOne">Escolha o Feed de Dados inicial</h1>
-		{% if not tabelaAlunoVazia %}
-			<p class="lead text-muted">Carregue um arquivo CSV para gerar um novo BD ou então utilize o que foi
-				carregado na última seção.
-			</p>
+		{% if nDisciplinas != 0 or nAlunos != 0 %}
+		<p class="lead text-muted">Utilize o Banco de Dados gerado na última sessão ou então gere um novo carregando um
+			arquivo CSV.
+		</p>
 		{% else %}
-			<p class="lead text-muted">Nenhum dado foi encontrado no Banco de Dados, carregue um arquivo CSV para alimentar o BD.
-			</p>
+		<p class="lead text-muted">Nenhum dado foi encontrado no Banco de Dados, carregue um arquivo CSV para alimentar
+			o BD.
+		</p>
 		{% endif %}
 		<div class="carterOne justify-content-center mb-3">
-			{% if not tabelaAlunoVazia %}
-				<button onclick="location.href='{% url 'index2'%}'" class="btn btn-primary text-white">BD Atual</button>
+			{% if nDisciplinas != 0 or nAlunos != 0 %}
+			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-primary text-white mr-3">Utilizar
+				Atual</button>
 			{% endif %}
-			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-secondary mr-3">Novo BD</button>
+			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-secondary">Carregar Novo</button>
 		</div>
 
-		
-		<div class="mx-auto col-xl-4 ">
-			<div class="card carterOne">
-				<h4 class="card-title my-1 mx-2">Banco de Dados Atual</h4>
-				<div class="card-body">
-					<p class="card-text">{{nAlunos}} alunos</p>
-				</div>
-			</div>
-		</div>
-		<div>
-			{{tabelaAlunoVazia}}
-		</div>
-		<div>
-			{{nAlunos}}
-		</div>
 	</div>
-	{% if not tabelaAlunoVazia %}
 	<div class="toast fixed-top mr-3 ml-auto  carterOne" role="alert" aria-live="assertive" aria-atomic="true"
 		data-delay="4000" data-autohide="false">
 		<div class="toast-header py-2">
-			<h4 class="mr-auto my-auto text-warning">Banco de Dados Atual</h4>
-			<button type="button" class="ml-2 mb-1 close my-auto" data-dismiss="toast" aria-label="Close">
+			<h3 class="mr-auto my-auto text-secondary">Bando de Dados Atual</h3>
+			<button type="button" class="ml-4 mb-1 close my-auto" data-dismiss="toast" aria-label="Close">
 				<i class="fas fa-times"></i>
 			</button>
 		</div>
-		<div class="toast-body d-flex justify-content-around">
-			<button onclick="" class="btn btn-outline-info">Categorias</button>
-			<button onclick="" class="btn btn-outline-info">Categorias</button>
-		</div>
+		<h5 class="toast-body">
+			{% if nDisciplinas != 0 or nAlunos != 0 %}
+			<p class="mb-2 font-weight-bold text-center">{{nAlunos}} alunos cadastrados</p>
+			<p class="mb-2 font-weight-bold text-center">{{nDisciplinas}} disciplinas cadastradas</p>
+			{% endif %}
+		</h5>
 	</div>
-	{% endif %}
 
 </div>
 {% endblock %}

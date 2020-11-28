@@ -27,3 +27,7 @@
 .fixed-top{
     top:70px
 }
+
+.toast{
+    max-width: 390px;
+}
