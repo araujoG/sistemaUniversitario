@@ -29,7 +29,7 @@ class FeedDeDados(models.Model):
                 aluno.save()
                 disciplina.save()
                 disciplinaCursada.save()
-                break;
+            
 
     def apagaBd(self):
         DisciplinaCursada.objects.all().delete()

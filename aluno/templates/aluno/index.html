@@ -12,8 +12,8 @@
             </div>
         {% endfor %}
     {% endif %}
-    {% for aluno in alunos %}
-        <p><strong class="carterOne">{{aluno.aluno.matricula}}:</strong> tirou {{aluno.nota}} em {{aluno.disciplina}}</p>     
+    {% for row in alunos %}
+        <p>O aluno de matrícula <strong class="carterOne">{{row.aluno.matricula}}</strong> tem o Cr {{row.cr}} e faz o curso de código <strong class="carterOne">{{row.aluno.curso}}</strong></p>     
     {% endfor %}
 </div>
 {% endblock %}
