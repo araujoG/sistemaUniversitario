@@ -1,13 +1,23 @@
+from django import forms
 from feedDeDados.models import FeedDeDados
 from django.core.validators import RegexValidator
 from feedDeDados.validators import validaArquivo
 
 
-class FeedDeDadosFormForm(forms.ModelForm):
+class SelecaoFeedDeDadosForm(forms.Form):
+    
+    nome = forms.ModelChoiceField(queryset=FeedDeDados.objects.all(), required=True,empty_label='Selecione um Arquivo')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['nome'].widget.attrs.update({'class': 'custom-select my-1 mr-sm-2'})
+        self.fields['nome'].validators=[]
+
+class FeedDeDadosForm(forms.ModelForm):
 
     class Meta:
         model = FeedDeDados
-        fields = ("nomeArquivo", "dataCarregamento")
+        fields = ('nomeArquivo',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block corpo %}
+<div class="container py-4 fillView d-flex">
+    <form action="{% url 'feedDeDados:cadastraFeed' %}" method="POST" class="pb-4 carter" novalidate style="min-height: 323px">
+        {{form.as_p}}
+        <div class="d-flex justify-content-end">
+            <button id="submitFeedDeDados" type="submit" class="btn btn-primary">
+            {% csrf_token %}
+                <i class="fas fa-plus-circle mr-1"></i> Cadastrar
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

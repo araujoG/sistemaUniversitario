@@ -22,6 +22,7 @@ app_name = 'sistemaUniversitario'
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('cont/', views.index2, name="index2"),
+    path('feedDeDados/', include('feedDeDados.urls')),
+    path('aluno/', include('aluno.urls')),
     path('admin/', admin.site.urls),
 ]

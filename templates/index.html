@@ -16,10 +16,10 @@
 		{% endif %}
 		<div class="carterOne justify-content-center mb-3">
 			{% if nDisciplinas != 0 or nAlunos != 0 %}
-			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-primary text-white mr-3">Utilizar
+			<button onclick="location.href=''" class="btn btn-primary text-white mr-3">Utilizar
 				Atual</button>
 			{% endif %}
-			<button onclick="location.href='{% url 'index2'%}'" class="btn btn-secondary">Carregar Novo</button>
+			<button onclick="location.href='{% url 'feedDeDados:selecionaFeed'%}'" class="btn btn-secondary">Carregar Novo</button>
 		</div>
 
 	</div>

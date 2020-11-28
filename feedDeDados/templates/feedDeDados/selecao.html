@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block corpo %}
+<div class="container py-4 fillView d-flex">
+    {% if messages %}
+        {% for mensagem in messages %}
+            <div class="alert alert-warning alert-dismissible fade show mb-2" role="alert">
+                <strong>{{mensagem}}</strong> 
+                <button type="button" class="ml-4 mb-1 close my-auto" data-dismiss="alert" aria-label="Close">
+				    <i class="fas fa-times"></i>
+			    </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'feedDeDados:selecionaFeed' %}" method="get" class="pb-4 carter" novalidate style="min-height: 323px">
+       {{form.as_p}}
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">
+            {% csrf_token %}
+                <i class="fas fa-plus-circle mr-1"></i> Selecionar
+            </button>
+        </div>
+    </form>
+    {{feedSelecionado}}
+</div>
+{% endblock %}
