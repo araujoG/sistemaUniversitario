@@ -8,8 +8,4 @@ def index(request):
     alunos = Aluno.objects.all()
     return render(request, 'index.html')
 
-def index2(request):
-    frase = "esta é a frase da index candyStore"
-    alunos = Aluno.objects.all()
-    return render(request, 'index2.html')
 

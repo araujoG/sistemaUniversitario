@@ -3,7 +3,14 @@ from feedDeDados.models import FeedDeDados
 from feedDeDados.forms import FeedDeDadosForm, SelecaoFeedDeDadosForm
 
 def cadastraFeed(request):
-    form = FeedDeDadosForm()
+    if request.POST:
+        form = FeedDeDadosForm(request.POST)
+        if form.is_valid():
+            feed = form.save(commit=False)
+            feed.save()
+            return redirect('feedDeDados:selecionaFeed')
+    else:
+        form = FeedDeDadosForm()
     return render(request, 'feedDeDados/cadastro.html', {'form':form})
 
 def selecionaFeed(request):

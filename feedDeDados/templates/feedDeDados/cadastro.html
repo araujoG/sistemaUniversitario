@@ -2,14 +2,16 @@
 {% load static %}
 {% block corpo %}
 <div class="container py-4 fillView d-flex">
-    <form action="{% url 'feedDeDados:cadastraFeed' %}" method="POST" class="pb-4 carter" novalidate style="min-height: 323px">
-        {{form.as_p}}
-        <div class="d-flex justify-content-end">
-            <button id="submitFeedDeDados" type="submit" class="btn btn-primary">
-            {% csrf_token %}
-                <i class="fas fa-plus-circle mr-1"></i> Cadastrar
+    <form action="{% url 'feedDeDados:cadastraFeed' %}" method="POST" class="mx-auto pb-4 carterOne form">
+        <label class="">Nome do Arquivo:</label>
+        <div class="form-inline mb-2">
+            {{form.nomeArquivo}}
+            <button type="submit" class="btn btn-primary px-3">
+                {% csrf_token %}
+                <i class="fas fa-plus-circle mr-2"></i> Cadastrar
             </button>
         </div>
+        <div class="text-warning">{{form.nomeArquivo.errors}}</div>
     </form>
 </div>
 {% endblock %}

@@ -16,7 +16,7 @@
 		{% endif %}
 		<div class="carterOne justify-content-center mb-3">
 			{% if nDisciplinas != 0 or nAlunos != 0 %}
-			<button onclick="location.href=''" class="btn btn-primary text-white mr-3">Utilizar
+			<button onclick="location.href='{% url 'aluno:listaAluno'%}'" class="btn btn-primary text-white mr-3">Utilizar
 				Atual</button>
 			{% endif %}
 			<button onclick="location.href='{% url 'feedDeDados:selecionaFeed'%}'" class="btn btn-secondary">Carregar Novo</button>
@@ -26,7 +26,7 @@
 	<div class="toast fixed-top mr-3 ml-auto  carterOne" role="alert" aria-live="assertive" aria-atomic="true"
 		data-delay="4000" data-autohide="false">
 		<div class="toast-header py-2">
-			<h3 class="mr-auto my-auto text-secondary">Bando de Dados Atual</h3>
+			<h3 class="mr-auto my-auto text-secondary">Banco de Dados Atual</h3>
 			<button type="button" class="ml-4 mb-1 close my-auto" data-dismiss="toast" aria-label="Close">
 				<i class="fas fa-times"></i>
 			</button>

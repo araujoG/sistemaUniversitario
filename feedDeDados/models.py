@@ -3,7 +3,7 @@ import csv
 from aluno.models import Aluno, DisciplinaCursada
 from disciplina.models import Disciplina
 from curso.models import Curso
-from feedDeDados.validators import validaArquivo
+from feedDeDados.validators import validaArquivo, validaNomeArquivo
 from django.core.validators import RegexValidator
 import time
 
@@ -11,7 +11,7 @@ import time
 
 class FeedDeDados(models.Model):
     nomeArquivo = models.CharField(max_length=100, db_index=True, unique=True, validators=[
-            RegexValidator(regex='^[a-z]+\.(csv)$', message='Nome do arquivo de dados precisa ser do formato CSV.'), validaArquivo])
+            RegexValidator(regex='^[a-z]+\.(csv)$', message='O arquivo de dados precisa ser do formato CSV.'), validaNomeArquivo])
     dataCarregamento = models.DateTimeField(auto_now=True)
 
     class Meta:
