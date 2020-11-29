@@ -14,7 +14,11 @@ class Aluno(models.Model):
     def __str__(self):
         return self.matricula
 
-    
+    def getAprovacoes(self):
+        return DisciplinaCursada.objects.filter(aluno=self, nota__gte = 60).count()
+
+    def getReprovacoes(self):
+        return DisciplinaCursada.objects.filter(aluno=self, nota__lt = 60).count()
 
 # Modelo intermediário(relação).
 class DisciplinaCursada(models.Model):

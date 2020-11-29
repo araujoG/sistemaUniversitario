@@ -31,3 +31,8 @@
 .toast{
     max-width: 390px;
 }
+
+td{
+    vertical-align: middle !important;
+    text-align: center !important;   
+}    

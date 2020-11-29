@@ -12,21 +12,25 @@
             </div>
         {% endfor %}
     {% endif %}
-    <table class="table w-auto table-hover">
+    <table class="table w-auto table-hover mx-auto">
         <thead>
             <tr>
               <th scope="col" ><h4 class="font-weight-bold m-0 mx-3">Matrícula</h4></th>
               <th scope="col" ><h4 class="font-weight-bold m-0 mx-3">Cr</h4></th>
+              <th scope="col" ><h4 class="font-weight-bold m-0 mx-3">Aprovações</h4></th>
+              <th scope="col" ><h4 class="font-weight-bold m-0 mx-3">Reprovações</h4></th>
               <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
         {% for row in alunos %}
             <tr>
-                <td>{{row.aluno.matricula}}</td>
-                <td>{{row.cr}}</td>
+                <td class="h5">{{row.aluno.matricula}}</td>
+                <td class="h5">{{row.cr}}</td>
+                <td class="h5 text-success">{{row.aluno.getAprovacoes}}</td>
+                <td class="text-danger h5">{{row.aluno.getReprovacoes}}</td>
                 <td><button type="button" class="btn btn-primary px-3">
-                    <i class="fas fa-database mr-2"></i> Histórico
+                    <i class="fas fa-user-graduate mr-2"></i> Histórico
                 </button></td>
             </tr>
         {% endfor %}
