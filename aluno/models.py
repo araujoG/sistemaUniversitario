@@ -16,7 +16,7 @@ class Aluno(models.Model):
 
     
 
-# Create your models here.
+# Modelo intermediário(relação).
 class DisciplinaCursada(models.Model):
     disciplina = models.ForeignKey(Disciplina, db_index=True, on_delete=models.PROTECT, null=False, to_field='codigo')
     aluno = models.ForeignKey(Aluno, db_index=True, on_delete=models.PROTECT, null=False, to_field='matricula')
