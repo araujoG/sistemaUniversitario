@@ -20,6 +20,9 @@ class Aluno(models.Model):
     def getReprovacoes(self):
         return DisciplinaCursada.objects.filter(aluno=self, nota__lt = 60).count()
 
+    def getDisciplinas(self):
+        return DisciplinaCursada.objects.filter(aluno=self).select_related('disciplina')
+
 # Modelo intermediário(relação).
 class DisciplinaCursada(models.Model):
     disciplina = models.ForeignKey(Disciplina, db_index=True, on_delete=models.PROTECT, null=False, to_field='codigo')

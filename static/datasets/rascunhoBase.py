@@ -12,6 +12,9 @@ import csv
 from aluno.models import Aluno, DisciplinaCursada
 from django.db.models import Sum, Count, F
 from feedDeDados.models import FeedDeDados
+
+DisciplinaCursada.objects.filter(aluno__matricula=100).select_related('disciplina')
+
 from django.db import connection
 print('conexões')
 print(len(connection.queries))

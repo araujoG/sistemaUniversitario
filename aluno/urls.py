@@ -6,4 +6,5 @@ app_name = 'aluno'
 
 urlpatterns = [
     path('', views.listaAluno, name="listaAluno"),
+    path('historico/<int:matricula>', views.exibeHistorico, name="exibeHistorico")
 ]

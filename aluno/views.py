@@ -11,3 +11,12 @@ def listaAluno(request):
         aluno['aluno'] = aluno.pop('aluno', None)
     print(alunos)
     return render(request, 'aluno/index.html', {'alunos':alunos})
+
+def exibeHistorico(request, matricula=None):
+    aluno = get_object_or_404(Aluno, matricula=matricula)
+    disciplinas = aluno.getDisciplinas()
+    print(disciplinas)
+    context={
+        'disciplinas': disciplinas
+    }
+    return render(request, 'aluno/historico.html', context)
