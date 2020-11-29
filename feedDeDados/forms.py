@@ -6,12 +6,12 @@ from feedDeDados.validators import validaArquivo
 
 class SelecaoFeedDeDadosForm(forms.Form):
     
-    nome = forms.ModelChoiceField(queryset=FeedDeDados.objects.all(), required=True,empty_label='Selecione um Arquivo')
+    nome = forms.ModelChoiceField(queryset=FeedDeDados.objects.all(), required=True,empty_label='                  ')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['nome'].widget.attrs.update({'class': 'custom-select my-1 mr-sm-2'})
-        self.fields['nome'].validators=[]
+        self.fields['nome'].widget.attrs.update({'class': 'custom-select my-1 mr-3', 'style': 'width:310px'})
+        self.fields['nome'].validators=[validaArquivo]
 
 class FeedDeDadosForm(forms.ModelForm):
 

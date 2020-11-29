@@ -1,26 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block corpo %}
-<div class="container py-4 fillView d-flex">
-    {% if messages %}
-        {% for mensagem in messages %}
-            <div class="alert alert-warning alert-dismissible fade show mb-2" role="alert">
-                <strong>{{mensagem}}</strong> 
-                <button type="button" class="ml-4 mb-1 close my-auto" data-dismiss="alert" aria-label="Close">
-				    <i class="fas fa-times"></i>
-			    </button>
+<div class="container py-4 fillView">
+    <h4><a href="" type="button" class="mx-2 text-success"><i class="fas fa-plus-circle mr-1 "></i><strong
+                class='text-dark'>Novo Arquivo</strong></a></h4>
+    <div class="d-flex">
+        <form action="{% url 'feedDeDados:selecionaFeed' %}" method="GET" class="mx-auto pb-4 carterOne form">
+            <label class="">Escolha um arquivo cadastrado:</label>
+            <div class="form-inline">
+                {{form.nome}}
+                <button type="submit" class="btn btn-primary px-3">
+                    {% csrf_token %}
+                    <i class="fas fa-database mr-2"></i> Cadastrar
+                </button>
             </div>
-        {% endfor %}
-    {% endif %}
-    <form action="{% url 'feedDeDados:selecionaFeed' %}" method="get" class="pb-4 carter" novalidate style="min-height: 323px">
-       {{form.as_p}}
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">
-            {% csrf_token %}
-                <i class="fas fa-plus-circle mr-1"></i> Selecionar
-            </button>
-        </div>
-    </form>
-    {{feedSelecionado}}
+            <div class="text-warning">{{form.nome.errors}}</div>
+        </form>
+        {{feedSelecionado}}
+    </div>
 </div>
 {% endblock %}

@@ -70,12 +70,4 @@ class FeedDeDados(models.Model):
     
     def substituiBd(self):
         self.apagaBd()
-        self.populaBd()
-
-    def arquivoExiste(self):
-        try:
-            open('static/datasets/'+self.nomeArquivo, newline="")
-        except IOError:
-            return False
-        return True
-
+        self.populaBdBulk()
