@@ -26,7 +26,7 @@ class FeedDeDados(models.Model):
         with open('static/datasets/'+self.nomeArquivo, newline="") as entradaCsv:
             leitorCsv = csv.DictReader(entradaCsv)
             for linha in leitorCsv:
-                aluno = Aluno(matricula=linha["MATRICULA"],curso = linha["COD_CURSO"])
+                aluno = Aluno(matricula=linha["MATRICULA"])
                 curso = Curso(codigo=linha["COD_CURSO"])
                 disciplina = Disciplina(codigo=linha["COD_DISCIPLINA"], cargaHoraria=linha["CARGA_HORARIA"],cursoAssociado=curso)
                 disciplinaCursada = DisciplinaCursada(disciplina=disciplina, aluno=aluno, nota=linha["NOTA"], anoSemestre=linha["ANO_SEMESTRE"])

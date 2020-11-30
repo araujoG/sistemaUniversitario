@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'aluno.contextProcessors.tabelaVazia',
                 'disciplina.contextProcessors.tabelaVazia',
+                'curso.contextProcessors.tabelaVazia',
             ],
         },
     },

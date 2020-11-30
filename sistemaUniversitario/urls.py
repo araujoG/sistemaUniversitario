@@ -24,5 +24,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('feedDeDados/', include('feedDeDados.urls')),
     path('aluno/', include('aluno.urls')),
+    path('curso/', include('curso.urls')),
     path('admin/', admin.site.urls),
 ]

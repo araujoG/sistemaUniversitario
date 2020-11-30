@@ -12,6 +12,13 @@ import csv
 from aluno.models import Aluno, DisciplinaCursada
 from django.db.models import Sum, Count, F
 from feedDeDados.models import FeedDeDados
+from curso.models import Curso
+Curso.objects.get(codigo=31).disciplina__set.all().count()
+
+curso = Curso.objects.get(codigo='TET00186').disciplina_set.all().count()
+curso.disciplina__set.all().count()
+
+d = DisciplinaCursada.objects.select_related('disciplina').annotate(curso=F('disciplina__cursoAssociado__codigo')).filter(curso=4)
 
 DisciplinaCursada.objects.filter(aluno__matricula=100).select_related('disciplina')
 
@@ -35,7 +42,7 @@ print("queries pra popular sem bulk: {}".format(s-len(connection.queries)))
 exit()
 
 
-# DisciplinaCursada.objects.select_related('aluno').annotate(curso=F('aluno__curso')) #query com os cursos de cada aluno
+# DisciplinaCursada.objects.select_related('disciplina').annotate(curso=F('disciplina__curso')) #query com os cursos de cada disciplina
 
 # alunos = DisciplinaCursada.objects.select_related('aluno','disciplina').values('aluno','aluno__curso').annotate(notaCarga=Sum(F('nota')*F('disciplina__cargaHoraria')), cargaHoraria= Sum(F('disciplina__cargaHoraria')))
 # alunos = alunos.values('aluno','aluno__curso').annotate(cr=F('notaCarga') / F('cargaHoraria'))

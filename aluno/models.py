@@ -5,7 +5,6 @@ import csv
 
 class Aluno(models.Model):
     matricula = models.CharField(max_length=8, db_index=True, unique=True, primary_key=True)
-    curso = models.CharField(max_length=5)
     disciplinas = models.ManyToManyField(Disciplina, through='DisciplinaCursada')
 
     class Meta:

@@ -16,23 +16,17 @@
     <table class="table w-auto table-hover mx-auto">
         <thead>
             <tr>
-              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Matrícula</h4></th>
+              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Código Do Curso</h4></th>
               <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Cr</h4></th>
-              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Aprovações</h4></th>
-              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Reprovações</h4></th>
-              <th scope="col" class="border-top-0"></th>
+              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Número de Disciplinas</h4></th>
             </tr>
         </thead>
         <tbody>
-        {% for row in alunos %}
+        {% for row in cursos %}
             <tr>
-                <td class="h5">{{row.aluno.matricula}}</td>
+                <td class="h5">{{row.curso}}</td>
                 <td class="h5">{{row.cr}}</td>
-                <td class="h5 text-success">{{row.aluno.getAprovacoes}}</td>
-                <td class="text-danger h5">{{row.aluno.getReprovacoes}}</td>
-                <td><button type="button" class="btn btn-primary px-3 modalOpen" data-url="{% url 'aluno:exibeHistorico' matricula=row.aluno.matricula %}">
-                    <i class="fas fa-user-graduate mr-2"></i> Histórico
-                </button></td>
+                <td class="h5">{{row.curso.getNumeroDisciplinas}}</td>
             </tr>
         {% endfor %}
         </tbody>

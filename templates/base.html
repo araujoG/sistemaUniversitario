@@ -20,7 +20,12 @@
 	{% block navbar %}
 	<nav class="navbar sticky-top navbar-dark bg-primary navbar-expand-lg">
 		<div class="container carterOne">
-			<a class="navbar-brand mr-3 carterOne" href="/">Sistema Acadêmico</a>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita -->
+			<div class="d-grid">
+				<a href="/" class="navbar-brand mr-3 carterOne">
+					<div class="mr-4 mb-neg10">Sistema</div>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita -->
+					<div class="ml-4">Acadêmico</div>
+				</a>   
+			</div>
 		</div>
 	</nav>
 	{% endblock %}

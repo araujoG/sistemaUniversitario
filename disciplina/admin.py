@@ -3,9 +3,9 @@ from .models import Disciplina
 
 # Register your models here.
 class DisciplinaAdmin(admin.ModelAdmin):
-    list_display = ['codigo', 'cargaHoraria']
-    search_fields = ['codigo', 'cargaHoraria']
-    list_filter = ['codigo', 'cargaHoraria']
+    list_display = ['codigo', 'cargaHoraria', 'cursoAssociado']
+    search_fields = ['codigo', 'cargaHoraria', 'cursoAssociado']
+    list_filter = ['cargaHoraria', 'cursoAssociado']
     actions = []
     save_as = True
 

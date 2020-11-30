@@ -36,3 +36,11 @@ td{
     vertical-align: middle !important;
     text-align: center !important;   
 }    
+
+.d-grid{
+    display: grid;
+}
+
+.mb-neg10{
+    margin-bottom: -10px;
+}

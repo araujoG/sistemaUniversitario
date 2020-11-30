@@ -9,3 +9,5 @@ class Curso (models.Model):
     def __str__(self):
         return self.codigo
 
+    def getNumeroDisciplinas(self):
+        return Curso.objects.get(codigo=self.codigo).disciplina_set.all().count()

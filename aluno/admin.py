@@ -3,9 +3,9 @@ from .models import Aluno, DisciplinaCursada
 
 # Register your models here.
 class AlunoAdmin(admin.ModelAdmin):
-    list_display = ['matricula', 'curso', ]
-    search_fields = ['matricula', 'curso']
-    list_filter = ['curso']
+    list_display = ['matricula']
+    search_fields = ['matricula']
+    list_filter = ['matricula']
     actions = []
     save_as = True
 
