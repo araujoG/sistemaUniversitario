@@ -33,8 +33,11 @@
 		</div>
 		<h5 class="toast-body">
 			{% if nDisciplinas != 0 or nAlunos != 0 %}
-			<p class="mb-2 font-weight-bold text-center">{{nAlunos}} alunos cadastrados</p>
-			<p class="mb-2 font-weight-bold text-center">{{nDisciplinas}} disciplinas cadastradas</p>
+				<p class="mb-2 font-weight-bold text-center">{{nAlunos}} alunos cadastrados</p>
+				<p class="mb-2 font-weight-bold text-center">{{nDisciplinas}} disciplinas cadastradas</p>
+				<p class="mb-2 font-weight-bold text-center">{{nCursos}} cursos cadastradas</p>
+			{% else %}
+				<p class="mb-2 font-weight-bold text-center">O Banco de Dados está vazio</p>
 			{% endif %}
 		</h5>
 	</div>
