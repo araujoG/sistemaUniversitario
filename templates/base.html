@@ -22,10 +22,14 @@
 		<div class="container carterOne">
 			<div class="d-grid">
 				<a href="/" class="navbar-brand mr-3 carterOne">
-					<div class="mr-4 mb-neg10">Sistema</div>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita -->
-					<div class="ml-4">Acadêmico</div>
-				</a>   
+					<div class="mr-4 mb-neg10 fontLogo">Sistema</div>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita -->
+					<div class="ml-4 fontLogo">Acadêmico</div>
+				</a>
 			</div>
+			<div class="navbar-nav font-weight-light">
+				<a class="nav-link nav-item text-white h5 mb-0" href="{% url 'aluno:listaAluno'%}">Alunos</a>	<!--colocar um colapse em medium e small-->
+				<a class="nav-link nav-item text-white h5 mb-0" href="{% url 'curso:listaCurso' %}">Cursos</a>
+			</div>   
 		</div>
 	</nav>
 	{% endblock %}
