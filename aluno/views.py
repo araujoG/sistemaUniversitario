@@ -8,6 +8,8 @@ def listaAluno(request):
     alunos = alunos.values('aluno').annotate(cr=F('notaCarga') / F('cargaHoraria'))
     for aluno in alunos:
         aluno['aluno'] = get_object_or_404(Aluno, matricula = aluno['aluno'])
+        aluno['reprovacoes'] = aluno['aluno'].getReprovacoes()
+        aluno['aprovacoes'] = aluno['aluno'].getAprovacoes()
     return render(request, 'aluno/index.html', {'alunos':alunos})
 
 def exibeHistorico(request, matricula=None):

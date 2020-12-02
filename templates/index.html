@@ -6,7 +6,7 @@
 		<div class="container carterOne">
 			<div class="d-grid">
 				<a href="/" class="navbar-brand mr-3 carterOne">
-					<div class="mr-4 mb-neg10 fontLogo">Sistema</div>   <!--- Colocar em 2 linhas com a de baixo deslocada p direita -->
+					<div class="mr-4 mb-neg10 fontLogo">Sistema</div> 
 					<div class="ml-4 fontLogo">Acadêmico</div>
 				</a>
 			</div>
@@ -19,7 +19,7 @@
 <div class="container py-4 fillView d-flex">
 	<div class="align-content-center flex-column w-75 text-center mx-auto align-self-center ">
 		<h1 class="carterOne">Escolha o Feed de Dados inicial</h1>
-		{% if nDisciplinas != 0 or nAlunos != 0 %}
+		{% if nDisciplinas != 0 or nAlunos != 0 or nCursos != 0 %}
 		<p class="lead text-muted">Utilize o Banco de Dados gerado na última sessão ou então gere um novo carregando um
 			arquivo CSV.
 		</p>
@@ -29,7 +29,7 @@
 		</p>
 		{% endif %}
 		<div class="carterOne justify-content-center mb-3">
-			{% if nDisciplinas != 0 or nAlunos != 0 %}
+			{% if nDisciplinas != 0 or nAlunos != 0 or nCursos != 0 %}
 			<button onclick="location.href='{% url 'aluno:listaAluno'%}'" class="btn btn-primary text-white mr-3">Utilizar
 				Atual</button>
 			{% endif %}
@@ -46,10 +46,10 @@
 			</button>
 		</div>
 		<h5 class="toast-body">
-			{% if nDisciplinas != 0 or nAlunos != 0 %}
+			{% if nDisciplinas != 0 or nAlunos != 0 or nCursos != 0 %}
 				<p class="mb-2 font-weight-bold text-center">{{nAlunos}} alunos cadastrados</p>
 				<p class="mb-2 font-weight-bold text-center">{{nDisciplinas}} disciplinas cadastradas</p>
-				<p class="mb-2 font-weight-bold text-center">{{nCursos}} cursos cadastradas</p>
+				<p class="mb-2 font-weight-bold text-center">{{nCursos}} cursos cadastrados</p>
 			{% else %}
 				<p class="mb-2 font-weight-bold text-center">O Banco de Dados está vazio</p>
 			{% endif %}

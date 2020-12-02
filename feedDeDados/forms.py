@@ -21,9 +21,7 @@ class FeedDeDadosForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
-        # self.fields['nomeArquivo'].validators=[
-        #     RegexValidator(regex='^[a-z]+\.(csv)$', message='O arquivo de dados deve ter o formato CSV'), validaArquivo]
+        
         self.fields['nomeArquivo'].widget.attrs.update({'class': 'form-control my-1 mr-3','id':'inputNomeArquivo','placeholder':'Nome do Arquivo de Dados'})
 
     

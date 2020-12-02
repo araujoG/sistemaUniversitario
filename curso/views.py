@@ -10,5 +10,6 @@ def listaCurso(request):
     print(cursos)
     for curso in cursos:
         curso['curso'] = get_object_or_404(Curso, codigo = curso['curso'] )
+        curso['nDisciplinas'] = curso['curso'].getNumeroDisciplinas()
     print(cursos)
     return render(request, 'curso/index.html', {'cursos':cursos})
