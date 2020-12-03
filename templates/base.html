@@ -26,9 +26,14 @@
 					<div class="ml-4 fontLogo">Acadêmico</div>
 				</a>
 			</div>
-			<div class="navbar-nav font-weight-light">
-				<a class="nav-link nav-item text-white h5 mb-0" href="{% url 'aluno:listaAluno'%}">Alunos</a>	<!--colocar um colapse em medium e small-->
-				<a class="nav-link nav-item text-white h5 mb-0" href="{% url 'curso:listaCurso' %}">Cursos</a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#menu">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="menu">
+				<div class="ml-auto navbar-nav font-weight-light">
+					<a class="nav-link nav-item text-white h5 mb-0" href="{% url 'aluno:listaAluno'%}">Alunos</a>	<!--colocar um colapse em medium e small-->
+					<a class="nav-link nav-item text-white h5 mb-0" href="{% url 'curso:listaCurso' %}">Cursos</a>
+				</div>   
 			</div>   
 		</div>
 	</nav>
@@ -43,7 +48,7 @@
 		<div class="w-85 row justify-content-around mx-auto py-4">
 			<div class="col-md-3">
                 <h4 class="m-0">
-                    <a class="nav-link text-light" href="#">Sobre a Desenvolvedor</a>
+                    <a class="nav-link text-light" href="#">       </a>
                 </h4>
 			</div>
 		</div>

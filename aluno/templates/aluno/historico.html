@@ -13,30 +13,32 @@
                     </button>
                 </div>
                 <div class="modal-body pt-0"> 
+                <div class="table-responsive">
                     <table class="table w-auto table-hover mx-auto">
                         <thead>
                             <tr>
                             <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Disciplina</h4></th>
                             <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Carga Horária</h4></th>
                             <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Nota</h4></th>
-                            <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Status</h4></th>
+                            <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Semestre</h4></th>
                             </tr>
                         </thead>
                         <tbody>
                         {% for disciplina in disciplinas %}
                             <tr>
-                                <td class="h5">{{disciplina.aluno.matricula}}</td>
+                                <td class="h5">{{disciplina.disciplina.codigo}}</td>
                                 <td class="h5">{{disciplina.disciplina.cargaHoraria}}</td>
-                                <td class="h5">{{disciplina.nota}}</td>
                                 {% if disciplina.nota < 60 %}
-                                    <td class="text-danger h5">Reprovado</td>
+                                    <td class="text-danger h5">{{disciplina.nota}}</td>
                                 {% else %}
-                                    <td class="text-success h5">Aprovado</td>
+                                    <td class="text-success h5">{{disciplina.nota}}</td>
                                 {% endif %}
+                                <td class="h5">{{disciplina.anoSemestre}}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

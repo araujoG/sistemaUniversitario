@@ -49,3 +49,6 @@ td{
     font-size: 24px;
 }
 
+.modal-dialog{
+    max-width: 515px;
+}

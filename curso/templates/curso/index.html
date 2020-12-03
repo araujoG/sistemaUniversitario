@@ -15,24 +15,26 @@
     <div class="d-flex justify-content-center">
         <h3 class="d-inline-block carterOne">Rendimento por Curso</h3>
     </div>
-    <table class="table w-auto table-hover mx-auto">
-        <thead>
-            <tr>
-              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Código Do Curso</h4></th>
-              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Cr Médio</h4></th>
-              <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Número de Disciplinas</h4></th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for row in cursos %}
-            <tr>
-                <td class="h5">{{row.curso}}</td>
-                <td class="h5">{{row.cr}}</td>
-                <td class="h5">{{row.nDisciplinas}}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="talbe-responsive">
+        <table class="table w-auto table-hover mx-auto">
+            <thead>
+                <tr>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Código Do Curso</h4></th>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Cr Médio</h4></th>
+                <th scope="col" class="border-top-0"><h4 class="font-weight-bold m-0 mx-1 text-center">Número de Disciplinas</h4></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in cursos %}
+                <tr>
+                    <td class="h5">{{row.curso}}</td>
+                    <td class="h5">{{row.cr}}</td>
+                    <td class="h5">{{row.nDisciplinas}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div id="modalHistorico"></div>
 </div>
 {% endblock %}

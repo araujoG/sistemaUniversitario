@@ -11,7 +11,7 @@ import time
 
 class FeedDeDados(models.Model):
     nomeArquivo = models.CharField(max_length=100, db_index=True, unique=True, validators=[
-            RegexValidator(regex='^[a-z]+\.(csv)$', message='O arquivo de dados precisa ser do formato CSV.'), validaNomeArquivo])
+            RegexValidator(regex='^[a-z0-9A-Z]+\.csv$', message='O arquivo de dados precisa ser do formato CSV.'), validaNomeArquivo])
     dataCarregamento = models.DateTimeField(auto_now=True)
 
     class Meta:
