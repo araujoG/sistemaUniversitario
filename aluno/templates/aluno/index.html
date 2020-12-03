@@ -2,16 +2,8 @@
 {% load static %}
 {% block corpo %}
 <div class="container py-4 fillView ">
-    {% if messages %}
-        {% for mensagem in messages %}
-            <div class="alert alert-warning alert-dismissible fade show mb-2" role="alert">
-                <strong>{{mensagem}}</strong>
-                <button type="button" class="ml-4 mb-1 close my-auto" data-dismiss="alert" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        {% endfor %}
-    {% endif %}
+
+    {% if nAlunos != 0 %}
     <div class="d-flex justify-content-center">
         <h3 class="d-inline-block carterOne">Rendimento dos Alunos</h3>
     </div>
@@ -44,5 +36,10 @@
     <div>
         <div id="modalHistorico"></div>
     </div>
+    {% else %}
+    <div class="d-flex justify-content-center">
+        <h3 class="d-inline-block carterOne text-capitalize text-center w-50 text-black-50">Não há nenhum aluno cadastrado no sistema...</h3>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
